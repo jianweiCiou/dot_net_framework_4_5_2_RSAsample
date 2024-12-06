@@ -150,7 +150,7 @@ namespace f_4_5_2_RSAsample
             this.orderType.Name = "orderType";
             this.orderType.Size = new System.Drawing.Size(100, 22);
             this.orderType.TabIndex = 11;
-            this.orderType.Text = "10";
+            this.orderType.Text = "20";
             // 
             // label7
             // 
