@@ -237,14 +237,15 @@ namespace f_4_5_2_RSAsample
             ServicePointManager.SecurityProtocol = (SecurityProtocolType)192 | (SecurityProtocolType)768 | (SecurityProtocolType)3072;
 
             try
-            { 
-                // Create signature
+            {
+                // 轉成 Xml 格式
                 var pemprivatekey = opensslkey.DecodeOpenSSLPrivateKey(privateKey);
                 if (pemprivatekey != null)
                 {
                     RSACryptoServiceProvider rsa = opensslkey.DecodeRSAPrivateKey(pemprivatekey);
                     privateKey = rsa.ToXmlString(true);
                 } 
+
                 string data = JsonConvert.SerializeObject(new
                 {
                     orderType = orderType,
@@ -252,6 +253,7 @@ namespace f_4_5_2_RSAsample
                     remark = remark,
                     expectingAmount = expectingAmount, // U 總量
                     notifyUrl = notifyUrl,
+                    redirectUrl = "",
                     timestamp = Convert.ToInt64(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds).ToString()
                 }); 
                 GenSignature(privateKey, data, out string xSignature);
