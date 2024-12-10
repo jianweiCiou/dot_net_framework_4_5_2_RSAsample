@@ -16,16 +16,11 @@ namespace f_4_5_2_RSAsample
         {
             InitializeComponent();
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+          
 
         private void privateKey_TextChanged(object sender, EventArgs e)
         {
 
-        }
-
+        } 
     }
 }
